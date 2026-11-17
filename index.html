@@ -7,7 +7,7 @@
 <meta name="description" content="Дневник силовых тренировок с двойной прогрессией 8–12">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>IRON LOG 4.1.1 — Дневник, аналитика и техника</title>
+<title>IRON LOG 4.4 — Дневник, аналитика и техника</title>
 <style>
 :root{color-scheme:dark;--bg:#0b1220;--panel:#151f31;--panel2:#1c2940;--line:#2d3b53;--text:#f4f7fb;--muted:#9aa9bd;--accent:#b9f34b;--blue:#67a9ff;--green:#3bd18b;--red:#ff7272;--amber:#ffca68;--r:17px;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}body{margin:0;background:radial-gradient(ellipse at 85% -15%,#243754 0,transparent 38%),var(--bg);color:var(--text);padding:0 0 calc(30px + env(safe-area-inset-bottom))}
@@ -22,7 +22,7 @@ h1{font-size:26px;margin:5px 0 3px;letter-spacing:-.6px}.muted{color:var(--muted
 h2{font-size:18px;margin:4px 0 10px}.section{font-size:16px;font-weight:900;margin:19px 2px 9px}
 .exercise{background:#101a2a;border:1px solid var(--line);border-radius:15px;padding:13px;margin:10px 0}.exhead{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.exname{font-weight:850;font-size:15px;line-height:1.25}.exmeta{font-size:11px;color:var(--muted);margin-top:5px}.actions{display:flex;gap:5px}.mini{border:0;border-radius:9px;background:#25344e;padding:7px 9px;color:#dce6f4;font-size:12px}.target{display:inline-block;background:#1e3552;color:#8fc3ff;border-radius:7px;padding:4px 7px;font-size:10px;font-weight:900;margin-top:7px}
 .ready{margin:10px 0 0;padding:9px 10px;border-radius:10px;background:#24371c;border:1px solid #456a2d;color:#c8f58a;font-size:12px;font-weight:800}.warning{background:#3c3020;border-color:#6b542d;color:#ffdc9a}
-.sethead,.setrow{display:grid;grid-template-columns:28px minmax(0,1fr) minmax(0,1fr) 42px;gap:6px;align-items:center}.sethead{font-size:10px;color:var(--muted);padding:12px 1px 4px}.setrow{margin-top:7px}.setno{text-align:center;color:var(--muted);font-size:12px}.field{min-width:0;width:100%;border:1px solid #34435b;background:#1b2940;color:var(--text);border-radius:9px;padding:10px 5px;text-align:center;outline:none}.field:focus{border-color:var(--accent)}.check{height:38px;border:0;border-radius:10px;background:#293851;color:#9eafc5;font-weight:900}.check.on{background:var(--green);color:#092016}
+.sethead,.setrow{display:grid;grid-template-columns:22px minmax(0,1fr) minmax(0,1fr) 66px 36px;gap:6px;align-items:center}.sethead{font-size:10px;color:var(--muted);padding:12px 1px 4px}.setrow{margin-top:7px}.setrow .field{padding:9px 2px;font-size:13px}.setrow select.field{padding:9px 0;font-size:12px}.exsummary{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px}.exsummary .mini{white-space:nowrap}.exdetails[hidden]{display:none}.exdetails{margin-top:8px}.exsummary .tiny{flex:1}.exercise.compact{padding:11px 12px}.exercise.compact .exname{font-size:14px}.exercise.compact .target{margin-top:4px}.exercise.compact .exmeta{margin-top:3px}.exercise .exfoot{gap:5px;flex-wrap:wrap}.exercise .exfoot .actions{margin-left:auto}.setno{text-align:center;color:var(--muted);font-size:12px}.field{min-width:0;width:100%;border:1px solid #34435b;background:#1b2940;color:var(--text);border-radius:9px;padding:10px 5px;text-align:center;outline:none}.field:focus{border-color:var(--accent)}.check{height:38px;border:0;border-radius:10px;background:#293851;color:#9eafc5;font-weight:900}.check.on{background:var(--green);color:#092016}
 .exfoot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:9px;margin-top:10px}.txtbtn{border:0;background:none;color:var(--blue);font-size:12px;font-weight:800;padding:6px 0}.btn{border:0;border-radius:12px;padding:13px 15px;font-weight:900}.primary{background:var(--accent);color:#17210d}.secondary{background:#263650;border:1px solid var(--line);color:var(--text)}.danger{background:#422631;color:#ff9da5;border:1px solid #70404d}.block{width:100%;margin-top:9px}
 .timer{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#101a2a;border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0}.time{font-size:27px;font-weight:950;font-variant-numeric:tabular-nums;color:var(--accent)}.timerbtns{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.timerbtns button{border:0;background:#293851;border-radius:8px;padding:8px 9px;font-size:11px;font-weight:800}
 .badge{border-radius:8px;padding:5px 8px;font-size:10px;font-weight:900;background:#293851;color:#c7d5e8}.history{padding:13px 0;border-bottom:1px solid var(--line)}.history:last-child{border:0}.empty{text-align:center;padding:28px 12px;color:var(--muted)}.empty b{display:block;color:var(--text);margin-bottom:6px}
@@ -38,10 +38,10 @@ canvas{width:100%;height:190px;background:#0f1929;border-radius:12px;margin-top:
 </head>
 <body>
 <div class="wrap">
-<header><div class="logo">IRON <span>LOG</span> / V4.2</div><div class="headbtns"><button class="ic" id="backup">⇧</button><button class="ic" id="settings">⚙</button></div></header>
+<header><div class="logo">IRON <span>LOG</span> / V4.4</div><div class="headbtns"><button class="ic" id="backup">⇧</button><button class="ic" id="settings">⚙</button></div></header>
 <div class="row"><div><h1>Дневник тренировок</h1><div class="sub" id="dateLabel"></div></div><span class="badge">DOUBLE PROGRESSION</span></div>
 <nav class="tabs"><button class="tab active" data-tab="train">Тренировка</button><button class="tab" data-tab="history">История</button><button class="tab" data-tab="stats">Прогресс</button></nav>
-<main id="main"></main><div class="footer">IRON LOG V4.2 · Локальное хранение · Сделай резервную копию перед сменой устройства</div>
+<main id="main"></main><div class="footer">IRON LOG V4.4 · Локальное хранение · Сделай резервную копию перед сменой устройства</div>
 </div>
 <div class="timerfloat" id="timerFloat"><div><div class="eyebrow" id="timerKind">Отдых между подходами</div><div class="time" id="timerText">02:30</div></div><div class="timerbtns"><button id="timerMinus">−30с</button><button id="timerPause">Пауза</button><button id="timerPlus">+30с</button><button id="timerStop">✕</button></div></div>
 <div class="modalbg" id="modalbg"><div class="modal" id="modal"></div></div><div class="toast" id="toast"></div><input id="file" type="file" accept=".json,application/json" hidden>
@@ -70,25 +70,30 @@ function showGuide(exId,forced,tab='anatomy'){
 
 const $=s=>document.querySelector(s), uid=()=>Math.random().toString(36).slice(2,10), today=()=>new Date().toISOString().slice(0,10);
 const mk=(id,name,min,target,n=2,weight="")=>({id,name,min,target,sets:Array.from({length:n},()=>({weight,reps:"",rir:"",done:false}))});
+const mk44=(id,name,min,target,weight="")=>{
+ const e=mk(id,name,min,target,2,weight);
+ e.sets.unshift({weight:"",reps:"",rir:"",done:false,kind:"warmup"});
+ return e;
+};
 const seed={
- dayA:[mk("ex1","Жим ногами",8,12,3,80),mk("ex3","Жим гантелей лёжа",8,12,3,24),mk("ex2","Горизонтальная тяга блока",8,12,3,50),mk("a_ham","Сгибание ног сидя в тренажёре",10,15,2),mk("a_lateral","Махи гантелями в стороны",12,20,2),mk("ex4","Подъём гантелей на бицепс",8,12,2,12),mk("a_calf","Подъёмы на носки стоя (икры)",10,15,2),mk("a_core","Подъём прямых ног в упоре на локтях",8,15,2)],
- dayB:[mk("ex5","Румынская тяга",8,10,3,70),mk("ex6","Тяга верхнего блока к груди",8,12,3,55),mk("b_chest","Жим гантелей на наклонной скамье (грудь)",8,12,3),mk("ex7","Жим гантелей сидя",8,12,2,16),mk("b_quad","Жим ногами (квадрицепсы)",10,15,2),mk("ex8","Разгибания на трицепс в блоке",10,15,2,25),mk("b_calf","Подъёмы на носки сидя (икры)",12,20,2),mk("b_core","Подъём прямых ног в упоре на локтях",8,15,2)]};
-function fresh(){return {programVersion:42,program:structuredClone(seed),history:[],settings:{rest:90,exerciseRest:150,bodyWeight:74,intensity:4.5,cardioGoal:5,auto:true,step:2.5,sound:true,vibration:true,notifications:true},active:null,nextDay:"A"}}
+ dayA:[mk44("ex1","Жим ногами",8,12,80),mk44("ex3","Жим гантелей лёжа",8,12,24),mk44("ex2","Горизонтальная тяга блока",8,12,50),mk44("a_ham","Сгибание ног сидя в тренажёре",10,15),mk44("a_lateral","Махи гантелями в стороны",12,20),mk44("ex4","Подъём гантелей на бицепс",8,12,12),mk44("a_calf","Подъёмы на носки стоя (икры)",10,15),mk44("a_core","Подъём прямых ног в упоре на локтях",8,15)],
+ dayB:[mk44("ex5","Румынская тяга",8,10,70),mk44("ex6","Тяга верхнего блока к груди",8,12,55),mk44("b_chest","Жим гантелей на наклонной скамье (грудь)",8,12),mk44("ex7","Жим гантелей сидя",8,12,16),mk44("b_quad","Жим ногами (квадрицепсы)",10,15),mk44("ex8","Разгибания на трицепс в блоке",10,15,25),mk44("b_calf","Подъёмы на носки сидя (икры)",12,20),mk44("b_core","Подъём прямых ног в упоре на локтях",8,15)]};
+function fresh(){return {programVersion:44,program:structuredClone(seed),history:[],settings:{rest:90,exerciseRest:150,bodyWeight:74,intensity:4.5,cardioGoal:5,auto:true,step:2.5,sound:true,vibration:true,notifications:true},active:null,nextDay:"A"}}
 function migrateProgram(x){
- if(x.programVersion>=42)return x;
+ if(x.programVersion>=44)return x;
  // Existing user data remains untouched until they explicitly opt into the new program.
  x.programVersion=x.programVersion||35;
  return x;
 }
-function applyProgram42(){
- if(!confirm("Установить новую программу Full Body A/B? История останется без изменений. Текущие упражнения и подходы будут заменены, рабочие веса совпадающих упражнений перенесутся. Сначала сделай резервную копию."))return;
+function applyProgram44(){
+ if(!confirm("Установить программу V4.4: один разминочный и два рабочих подхода на упражнение? История сохранится. Текущие незавершённые подходы заменятся; сначала экспортируй резервную копию."))return;
  let old=[...(db.program.dayA||[]),...(db.program.dayB||[])];
  let freshProgram=structuredClone(seed);
  for(let key of ["dayA","dayB"])for(let e of freshProgram[key]){
   let oldE=old.find(z=>z.id===e.id);
-  if(oldE){let work=oldE.sets.filter(z=>z.kind!=="warmup");let saved=work.map(z=>z.weight).filter(v=>v!==""&&v!=null);if(saved.length)e.sets.forEach((z,i)=>{z.weight=saved[Math.min(i,saved.length-1)]});}
+  if(oldE){let work=oldE.sets.filter(z=>z.kind!=="warmup");let saved=work.map(z=>z.weight).filter(v=>v!==""&&v!=null);if(saved.length)e.sets.filter(z=>z.kind!=="warmup").forEach((z,i)=>{z.weight=saved[Math.min(i,saved.length-1)]});}
  }
- db.program=freshProgram;db.programVersion=42;db.active=null;persist();resetTimer();render();toast("Программа A/B обновлена. История сохранена");
+ db.program=freshProgram;db.programVersion=44;db.active=null;persist();resetTimer();render();toast("Программа A/B обновлена. История сохранена");
 }
 function load(){try{let x=JSON.parse(localStorage.getItem("ironlog_v2"));if(x&&x.program&&Array.isArray(x.history)){x.settings={rest:90,exerciseRest:150,bodyWeight:74,intensity:4.5,cardioGoal:5,auto:true,step:2.5,sound:true,vibration:true,notifications:true,...x.settings};return migrateProgram(x)}}catch(e){}return fresh()}
 let db=load(),tab="train",day=db.nextDay||"A",editing=null,dragId=null;
@@ -125,7 +130,7 @@ function render(){document.querySelectorAll(".tab").forEach(b=>b.classList.toggl
 document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
 function prog(dayKey){return db.program[dayKey==="A"?"dayA":"dayB"]}
 function lastExercise(name,dayKey){for(let h of db.history){if(h.day===dayKey){let e=h.exercises.find(x=>x.name===name);if(e)return e}}return null}
-function progression(ex,dayKey){let prev=lastExercise(ex.name,dayKey);let first=ex.sets.find(s=>s.kind!=="warmup");let firstTop=!!first&&first.done&&first.reps!==""&&Number(first.reps)>=ex.target;let allMin=ex.sets.some(s=>s.kind!=="warmup")&&ex.sets.filter(s=>s.kind!=="warmup").every(s=>s.done&&s.reps!==""&&Number(s.reps)>=ex.min);if(firstTop)return {type:"up",text:"Первый рабочий подход достиг "+ex.target+" повторений. Продолжай с текущим весом; прибавку оцени после всех рабочих подходов с учётом RIR и техники."};if(allMin)return {type:"good",text:"Все подходы в диапазоне. Сохраняй вес и постепенно добавляй повторения; ориентир прогрессии — первый рабочий подход."};if(prev)return {type:"hold",text:"Сохраняй вес и постепенно улучшай повторения. Не форсируй отказ ценой нарушения техники."};return {type:"info",text:"Стартовый ориентир: "+ex.min+"–"+ex.target+" повторений. Подбери вес, с которым первый рабочий подход подходит близко к техническому отказу."}}
+function progression(ex,dayKey){let prev=lastExercise(ex.name,dayKey);if(prev&&!prev.sets.some(s=>s.done&&Number(s.reps)>0))prev=null;let first=ex.sets.find(s=>s.kind!=="warmup");let firstTop=!!first&&first.done&&first.reps!==""&&Number(first.reps)>=ex.target;let allMin=ex.sets.some(s=>s.kind!=="warmup")&&ex.sets.filter(s=>s.kind!=="warmup").every(s=>s.done&&s.reps!==""&&Number(s.reps)>=ex.min);if(firstTop&&first.rir!==""&&Number(first.rir)>=1)return {type:"up",text:"Первый рабочий подход достиг "+ex.target+" повторений. Продолжай с текущим весом; прибавку оцени после всех рабочих подходов с учётом RIR и техники."};if(allMin)return {type:"good",text:"Все подходы в диапазоне. Сохраняй вес и постепенно добавляй повторения; ориентир прогрессии — первый рабочий подход."};if(prev)return {type:"hold",text:"Сохраняй вес и постепенно улучшай повторения. Не форсируй отказ ценой нарушения техники."};return {type:"info",text:"Стартовый ориентир: "+ex.min+"–"+ex.target+" повторений. Подбери вес, с которым первый рабочий подход подходит близко к техническому отказу."}}
 function nextSetAdvice(e,i){
  const s=e.sets[i],w=Number(s.weight)||0,r=Number(s.reps)||0;
  if(!r)return "Укажи число повторений, чтобы получить подсказку.";
@@ -143,16 +148,16 @@ function nextSetAdvice(e,i){
 }
 function showSetAdvice(e,i){const t=nextSetAdvice(e,i);modal(`<h2>Подсказка после подхода</h2><p class="smallnote">${esc(e.name)} · подход ${i+1}</p><div class="ready">${esc(t)}</div><p class="smallnote">Рекомендация ориентировочная: техника, самочувствие и запас повторений важнее чисел.</p><button class="btn primary block" id="closeSetAdvice">Понятно</button>`);$("#closeSetAdvice").onclick=closeModal}
 function renderTrain(){let p=prog(day),total=p.reduce((n,e)=>n+e.sets.filter(s=>s.kind!=="warmup").length,0),done=p.reduce((n,e)=>n+e.sets.filter(s=>s.done&&s.kind!=="warmup").length,0),started=db.active&&db.active.day===day;
-$("#main").innerHTML=`<section class="card"><div class="row"><div><div class="eyebrow">Программа</div><h2 style="font-size:21px;margin:4px 0">Full Body A/B</h2><div class="sub">Следующее занятие: День ${db.nextDay}</div>${db.programVersion<42?`<button class="btn secondary block" id="apply42">Установить новую программу A/B (с сохранением истории)</button>`:""}</div><div class="daytabs"><button class="daybtn ${day==="A"?"active":""}" data-day="A">А</button><button class="daybtn ${day==="B"?"active":""}" data-day="B">Б</button></div></div><div class="stats"><div class="stat"><strong>${p.length}</strong><span>упражнений</span></div><div class="stat"><strong>${done}/${total}</strong><span>подходов</span></div><div class="stat"><strong>${db.history.length}</strong><span>занятий</span></div></div><div class="progress"><i style="width:${total?done/total*100:0}%"></i></div></section>
+$("#main").innerHTML=`<section class="card"><div class="row"><div><div class="eyebrow">Программа</div><h2 style="font-size:21px;margin:4px 0">Full Body A/B</h2><div class="sub">Следующее занятие: День ${db.nextDay}</div>${db.programVersion<44?`<button class="btn secondary block" id="apply44">Установить новую программу A/B (с сохранением истории)</button>`:""}</div><div class="daytabs"><button class="daybtn ${day==="A"?"active":""}" data-day="A">А</button><button class="daybtn ${day==="B"?"active":""}" data-day="B">Б</button></div></div><div class="stats"><div class="stat"><strong>${p.length}</strong><span>упражнений</span></div><div class="stat"><strong>${done}/${total}</strong><span>подходов</span></div><div class="stat"><strong>${db.history.length}</strong><span>занятий</span></div></div><div class="progress"><i style="width:${total?done/total*100:0}%"></i></div></section>
 <div class="timer"><div><div class="eyebrow">Таймер отдыха</div><div class="time" id="timerInline">${clock(timer.left)}</div><div class="tiny muted">Между подходами ${clock(db.settings.rest)} · между упражнениями ${clock(db.settings.exerciseRest)} · ${db.settings.auto?"автостарт включён":"автостарт выключен"}</div><div class="tiny muted">При блокировке Android сигнал не гарантируется</div></div><div class="timerbtns"><button id="timerStart" class="btn secondary">${timer.running?"Пауза":"Старт"}</button><button id="timerReset">Сброс</button></div></div>
 <section class="card"><div class="row"><div><div class="eyebrow">Кардио · дорожка или эллипс</div><div class="time" id="cardioClock">${clock(cardioElapsed())}</div><div class="smallnote">Лёгкая разминка 5–8 минут. Таймер работает отдельно от отдыха.</div></div><div class="actions"><button class="mini" id="cardioToggle">${cardio.running?"Пауза":"Старт"}</button><button class="mini" id="cardioReset">Сброс</button></div></div></section>
-<section class="card"><div class="row"><div><div class="eyebrow">Общее время тренировки</div><div class="time" id="sessionClock">${durationText(activeSeconds())}</div><div class="smallnote">Запускается при первом выполненном подходе, сохраняется при закрытии страницы</div></div><button class="mini" id="sessionStart">${started?"Идёт":"Начать"}</button></div></section>
+<section class="card"><div class="row"><div><div class="eyebrow">Общее время тренировки</div><div class="time" id="sessionClock">${started?clock(activeSeconds()):"00:00"}</div><div class="smallnote">Запускается при первом выполненном подходе, сохраняется при закрытии страницы</div></div><button class="mini" id="sessionStart">${started?"Идёт":"Начать"}</button></div></section>
 <div class="row section"><span>Упражнения дня ${day}</span><button class="txtbtn" id="addEx">＋ Добавить</button></div>
 <div id="exerciseList">${p.map((e,i)=>exerciseCard(e,i)).join("")}</div>
 <button class="btn secondary block" id="addBottom">＋ Добавить упражнение</button>
 <button class="btn primary block" id="finish">${started?"Завершить и сохранить":"Сохранить тренировку"}</button>
 <p class="smallnote" style="text-align:center;margin-top:9px">Подходы сохраняются автоматически. Останавливай подход при потере правильной техники — это технический отказ, а не попытка любой ценой выжать ещё повторение.</p>`;
-if($("#apply42"))$("#apply42").onclick=applyProgram42;
+if($("#apply44"))$("#apply44").onclick=applyProgram44;
 document.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{day=b.dataset.day;render()});
 $("#cardioToggle").onclick=cardioToggle;$("#cardioReset").onclick=cardioReset;
 $("#sessionStart").onclick=()=>{if(!db.active||db.active.day!==day){db.active={day,startedAt:new Date().toISOString()};persist();render();}else toast("Тренировка уже идёт")};
@@ -161,19 +166,27 @@ $("#finish").onclick=finish;
 $("#timerStart").onclick=()=>timer.running?pauseTimer():startTimer();$("#timerReset").onclick=resetTimer;
 bindExerciseInputs();
 }
-function exerciseCard(e,i){let advice=progression(e,day),prev=lastExercise(e.name,day);return `<article class="exercise" draggable="true" data-card="${e.id}"><div class="exhead"><div style="min-width:0"><div class="exname">☰ ${i+1}. ${esc(e.name)}</div><div class="exmeta">Рабочие подходы: ${e.sets.filter(s=>s.kind!=="warmup").length} · диапазон ${e.min}–${e.target} повторений</div><span class="target">ДВОЙНАЯ ПРОГРЕССИЯ</span></div><div class="actions"><button class="mini" data-edit="${e.id}">✎</button><button class="mini" data-del="${e.id}">×</button></div></div>
-<button class="guideOpen" data-guide="${e.id}">▶ Техника · анатомия · движение · видео</button>
-<div class="ready ${advice.type==="up"?"":advice.type==="good"?"":"warning"}">${advice.type==="up"?"⬆ ":advice.type==="good"?"✓ ":"ℹ "}${esc(advice.text)}</div>
-${prev?`<div class="tiny muted" style="margin-top:8px">Прошлый раз: ${prev.sets.filter(s=>s.kind!=="warmup").map(s=>(s.weight||0)+" кг × "+(s.reps||0)).join(" · ")}</div>`:""}
-<div class="sethead"><span>№</span><span>Вес, кг</span><span>Повторы</span><span>✓</span></div>
-${e.sets.map((s,j)=>`<div class="setrow"><div class="setno">${s.kind==="warmup"?"Р":e.sets.slice(0,j+1).filter(z=>z.kind!=="warmup").length}</div><input class="field" type="number" inputmode="decimal" step=".5" min="0" value="${s.weight??""}" placeholder="кг" data-field="weight" data-id="${e.id}" data-i="${j}"><input class="field" type="number" inputmode="numeric" min="0" value="${s.reps??""}" placeholder="пов." data-field="reps" data-id="${e.id}" data-i="${j}"><button class="check ${s.done?"on":""}" data-check="${e.id}" data-i="${j}">${s.done?"✓":"○"}</button></div>`).join("")}
-<div class="setrow" style="grid-template-columns:28px 1fr 1fr 42px;margin-top:8px"><div></div><div class="tiny muted" style="grid-column:span 2">RIR — повторы в запасе (необязательно)</div><div></div></div>
-${e.sets.map((s,j)=>`<div class="setrow" style="grid-template-columns:28px 1fr 1fr 42px;margin-top:5px"><div class="setno">R</div><select class="field" style="grid-column:span 2" data-field="rir" data-id="${e.id}" data-i="${j}"><option value="">Не указано</option>${[0,1,2,3,4,5].map(v=>`<option value="${v}" ${String(s.rir)===String(v)?"selected":""}>${v} в запасе</option>`).join("")}</select><button class="mini" data-remove-set="${e.id}" data-i="${j}" title="Удалить подход">−</button></div>`).join("")}
-<div class="exfoot"><button class="txtbtn" data-add-warmup="${e.id}">＋ Разминка</button><button class="txtbtn" data-add-set="${e.id}">＋ Подход</button><div class="actions"><button class="txtbtn" data-up="${e.id}">↑</button><button class="txtbtn" data-down="${e.id}">↓</button><span class="tiny muted">${e.sets.filter(s=>s.done&&s.kind!=="warmup").length}/${e.sets.filter(s=>s.kind!=="warmup").length} рабочих выполнено</span></div></div></article>`}
+function exerciseCard(e,i){
+ const advice=progression(e,day),prev=lastExercise(e.name,day),prevSets=prev?prev.sets.filter(s=>s.kind!=="warmup"&&s.done&&Number(s.reps)>0):[];
+ const validPrev=prevSets.length>0;
+ const done=e.sets.filter(s=>s.done&&s.kind!=="warmup").length, total=e.sets.filter(s=>s.kind!=="warmup").length;
+ const adviceVisible=advice.type==="up"||advice.type==="good";
+ return `<article class="exercise compact" draggable="true" data-card="${e.id}"><div class="exhead"><div style="min-width:0"><div class="exname">☰ ${i+1}. ${esc(e.name)}</div><div class="exmeta">${total} рабочих + ${e.sets.filter(s=>s.kind==="warmup").length} разминка · ${e.min}–${e.target} повторений</div><span class="target">ДВОЙНАЯ ПРОГРЕССИЯ</span></div><div class="actions"><button class="mini" data-edit="${e.id}" aria-label="Редактировать">✎</button><button class="mini" data-del="${e.id}" aria-label="Удалить">×</button></div></div>
+ <div class="exsummary"><span class="tiny muted">${done}/${total} рабочих выполнено</span><button class="mini" data-toggle-ex="${e.id}" aria-expanded="true">Свернуть ▴</button></div>
+ <div class="exdetails" id="details-${e.id}">
+ <button class="guideOpen" data-guide="${e.id}">▶ Техника · анатомия · движение · видео</button>
+ ${adviceVisible?`<div class="ready">${advice.type==="up"?"⬆ ":"✓ "}${esc(advice.text)}</div>`:`<button class="txtbtn" data-tip="${e.id}">ⓘ Совет по прогрессии</button>`}
+ <div class="tiny muted" style="margin-top:6px">${validPrev?"Прошлый раз: "+prevSets.map(s=>(s.weight||0)+" кг × "+s.reps).join(" · "):"Истории пока нет"}</div>
+ <div class="sethead"><span>№</span><span>Вес, кг</span><span>Повт.</span><span>RIR</span><span>✓</span></div>
+ ${e.sets.map((s,j)=>`<div class="setrow"><div class="setno">${s.kind==="warmup"?"Р":e.sets.slice(0,j+1).filter(z=>z.kind!=="warmup").length}</div><input class="field" type="number" inputmode="decimal" step=".5" min="0" value="${s.weight??""}" placeholder="кг" data-field="weight" data-id="${e.id}" data-i="${j}"><input class="field" type="number" inputmode="numeric" min="0" value="${s.reps??""}" placeholder="пов." data-field="reps" data-id="${e.id}" data-i="${j}"><select class="field" data-field="rir" data-id="${e.id}" data-i="${j}" aria-label="RIR подхода ${j+1}"><option value="">—</option>${[0,1,2,3,4,5].map(v=>`<option value="${v}" ${String(s.rir)===String(v)?"selected":""}>${v}</option>`).join("")}</select><button class="check ${s.done?"on":""}" data-check="${e.id}" data-i="${j}">${s.done?"✓":"○"}</button></div>`).join("")}
+ <div class="exfoot"><button class="txtbtn" data-add-warmup="${e.id}">＋ Ещё разминка</button><button class="txtbtn" data-add-set="${e.id}">＋ Подход</button><div class="actions"><button class="txtbtn" data-up="${e.id}">↑</button><button class="txtbtn" data-down="${e.id}">↓</button><button class="txtbtn" data-remove-last="${e.id}">− подход</button></div></div></div></article>`}
+
 function bindExerciseInputs(){
+document.querySelectorAll("[data-toggle-ex]").forEach(b=>b.onclick=()=>{const el=document.getElementById("details-"+b.dataset.toggleEx);el.hidden=!el.hidden;b.textContent=el.hidden?"Развернуть ▾":"Свернуть ▴";b.setAttribute("aria-expanded",String(!el.hidden))});
+document.querySelectorAll("[data-tip]").forEach(b=>b.onclick=()=>{const e=prog(day).find(x=>x.id===b.dataset.tip);const t=progression(e,day);modal(`<h2>Совет по прогрессии</h2><p>${esc(t.text)}</p><button class="btn primary block" id="tipClose">Понятно</button>`);$("#tipClose").onclick=closeModal});
 document.querySelectorAll("[data-guide]").forEach(b=>b.onclick=()=>showGuide(b.dataset.guide));
 document.querySelectorAll("[data-field]").forEach(el=>el.onchange=()=>{let e=prog(day).find(x=>x.id===el.dataset.id),s=e.sets[+el.dataset.i],k=el.dataset.field;s[k]=k==="rir"?(el.value===""?"":+el.value):(el.value===""?"":+el.value);persist();if(k==="reps")render()});
-document.querySelectorAll("[data-check]").forEach(b=>b.onclick=()=>{let e=prog(day).find(x=>x.id===b.dataset.check),s=e.sets[+b.dataset.i];s.done=!s.done;persist();if(s.done){
+document.querySelectorAll("[data-check]").forEach(b=>b.onclick=()=>{let e=prog(day).find(x=>x.id===b.dataset.check),s=e.sets[+b.dataset.i];if(!s.done&&(!Number(s.reps)||Number(s.reps)<1)){toast("Сначала введи количество повторений");return}s.done=!s.done;persist();if(s.done){
  if(s.kind!=="warmup"&&(!db.active||db.active.day!==day)){db.active={day,startedAt:new Date().toISOString()}}
  if(db.settings.auto&&s.kind!=="warmup"){
   const allDone=e.sets.filter(x=>x.kind!=="warmup").every(x=>x.done);
@@ -189,6 +202,7 @@ document.querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editExercise(b
 document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>deleteExercise(b.dataset.del));
 document.querySelectorAll("[data-add-warmup]").forEach(b=>b.onclick=()=>{let e=prog(day).find(x=>x.id===b.dataset.addWarmup);e.sets.unshift({weight:"",reps:"",rir:"",done:false,kind:"warmup"});persist();render()});
 document.querySelectorAll("[data-add-set]").forEach(b=>b.onclick=()=>{let e=prog(day).find(x=>x.id===b.dataset.addSet),last=e.sets.at(-1)||{};e.sets.push({weight:last.weight??"",reps:"",rir:"",done:false});persist();render()});
+document.querySelectorAll("[data-remove-last]").forEach(b=>b.onclick=()=>{const e=prog(day).find(x=>x.id===b.dataset.removeLast);const i=e.sets.findLastIndex(s=>s.kind!=="warmup");if(e.sets.filter(s=>s.kind!=="warmup").length<=1){toast("Нужен хотя бы один рабочий подход");return}if(e.sets[i].done&&!confirm("Удалить выполненный подход?"))return;e.sets.splice(i,1);persist();render()});
 document.querySelectorAll("[data-remove-set]").forEach(b=>b.onclick=()=>{let e=prog(day).find(x=>x.id===b.dataset.removeSet);if(e.sets.filter(s=>s.kind!=="warmup").length<=1&&e.sets[+b.dataset.i].kind!=="warmup"){toast("В упражнении должен остаться хотя бы один подход");return}e.sets.splice(+b.dataset.i,1);persist();render()});
 document.querySelectorAll("[data-up],[data-down]").forEach(b=>b.onclick=()=>moveExercise(b.dataset.up||b.dataset.down,b.hasAttribute("data-up")?-1:1));
 document.querySelectorAll("[data-card]").forEach(card=>{card.ondragstart=()=>{dragId=card.dataset.card};card.ondragover=e=>e.preventDefault();card.ondrop=e=>{e.preventDefault();if(!dragId||dragId===card.dataset.card)return;let arr=prog(day),from=arr.findIndex(x=>x.id===dragId),to=arr.findIndex(x=>x.id===card.dataset.card);let [it]=arr.splice(from,1);arr.splice(to,0,it);dragId=null;persist();render()}})
@@ -211,12 +225,12 @@ window.addEventListener("focus",tick);window.addEventListener("pageshow",tick);d
 function updateTimerUI(){let t=clock(timer.left);$("#timerText").textContent=t;$("#timerKind").textContent=timer.kind==="exercise"?"Отдых между упражнениями":"Отдых между подходами";let inline=$("#timerInline");if(inline)inline.textContent=t;$("#timerFloat").classList.toggle("show",timer.running||timer.left!==(timer.kind==="exercise"?db.settings.exerciseRest:db.settings.rest));$("#timerPause").textContent=timer.running?"Пауза":"Старт"}
 $("#timerMinus").onclick=()=>adjustTimer(-30);$("#timerPlus").onclick=()=>adjustTimer(30);$("#timerPause").onclick=()=>timer.running?pauseTimer():startTimer();$("#timerStop").onclick=()=>{resetTimer();$("#timerFloat").classList.remove("show")};
 function activeSeconds(){return db.active&&db.active.startedAt?Math.max(0,Math.floor((Date.now()-new Date(db.active.startedAt).getTime())/1000)):0}
-function durationText(sec){if(!Number.isFinite(sec)||sec<=0)return "—";return Math.floor(sec/3600)+" ч "+Math.floor(sec%3600/60)+" мин"}
+function durationText(sec){if(!Number.isFinite(sec)||sec<=0)return "00:00";return Math.floor(sec/3600)+" ч "+Math.floor(sec%3600/60)+" мин"}
 function totalVolume(h){return h.exercises.reduce((a,e)=>a+e.sets.filter(x=>x.done&&x.kind!=="warmup").reduce((b,x)=>b+(Number(x.weight)||0)*(Number(x.reps)||0),0),0)}
 function completedSets(h){return h.exercises.reduce((a,e)=>a+e.sets.filter(x=>x.done&&x.kind!=="warmup").length,0)}
 function kcalEstimate(h){if(!h.durationSec||!h.bodyWeight||!h.intensity)return null;return Math.round(h.intensity*3.5*h.bodyWeight/200*(h.durationSec/60))}
 function reportText(records){
- const lines=["IRON LOG V4.2 — ОТЧЁТ ДЛЯ CHATGPT","Данные из дневника тренировок; оцени прогрессию, восстановление и недельный объём. Учитывай различия упражнений и качество данных.",""];
+ const lines=["IRON LOG V4.4 — ОТЧЁТ ДЛЯ CHATGPT","Данные из дневника тренировок; оцени прогрессию, восстановление и недельный объём. Учитывай различия упражнений и качество данных.",""];
  for(const h of records){
   lines.push("День "+h.day+" · "+h.date,"Длительность: "+durationText(h.durationSec),"Подходов: "+completedSets(h),"Тоннаж (вес × повторения): "+Math.round(totalVolume(h))+" кг");
   const kc=kcalEstimate(h);if(kc!==null)lines.push("Расход энергии: ≈"+kc+" ккал (грубая оценка MET, не измерение)");
@@ -255,6 +269,6 @@ $("#closeSettings").onclick=closeModal};
 if("serviceWorker"in navigator&&location.protocol!=="file:")addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 restoreTimer();
 render();
-sessionTicker=setInterval(()=>{let el=$("#sessionClock");if(el)el.textContent=durationText(activeSeconds());let cc=$("#cardioClock");if(cc)cc.textContent=clock(cardioElapsed())},1000);
+sessionTicker=setInterval(()=>{let el=$("#sessionClock");if(el)el.textContent=db.active?clock(activeSeconds()):"00:00";let cc=$("#cardioClock");if(cc)cc.textContent=clock(cardioElapsed())},1000);
 </script>
 </body></html>
